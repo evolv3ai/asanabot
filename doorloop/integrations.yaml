@@ -1,0 +1,28 @@
+name: DoorLoop API
+docs: https://api.doorloop.com/reference/
+description: DoorLoop is a cloud-based software that helps property managers and owners automate, organize, and grow their businesses. It offers features such as rent collection, accounting, maintenance, marketing, owners portal, and more.
+logo: https://raw.githubusercontent.com/evolv3ai/toolbot/main/img/doorloop.png
+categories: ["property management"]
+get_current_user_endpoint: ""
+
+auth_schemes:
+  - scheme_name: doorloop_api-key
+    auth_mode: API_KEY
+    proxy:
+      base_url: "https://app.doorloop.com/api"
+    headers:
+      Authorization: "Bearer {{api_key}}"
+    fields:
+      - name: api_key
+        expected_from_customer: true 
+        displayName: API Key
+        description: "The DoorLoop API key"
+        type: string
+        required: true
+      - name: base_url
+        expected_from_customer: true 
+        displayName: Base URL
+        description: "The API base URL for DoorLoop"
+        type: string
+        required: false
+        default: {{add the api endpoint URL of the app}}
